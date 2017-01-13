@@ -1,0 +1,48 @@
+﻿<style>
+    .custom {
+        text-align: center;
+        align-content: center;
+    }
+</style>
+
+<div ng-controller="CreatePetsController" class="row">
+    <form ng-submit="createPet()">
+        <fieldset>
+            <div class="row">
+                <h2 class="custom">Pets</h2>
+                <div class="col-md-offset-4 col-md-2">
+                    
+                    <input type="text" ng-model="petName" class="form-control" value="Enter Pet's Name" title="Enter Pet's Name" />
+                </div>
+                <div class="col-md-3">
+                    <input type="submit" value="Add" class="btn btn-default" />
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    <a href="#!/">Back to all Users</a>
+    <p ng-model="pidd" hidden>{{pid}}</p>
+</div>
+<hr />
+<div ng-controller="PetsController" class="row">
+    <div class="col-md-offset-4 col-md-4">
+        <table class="table table-hover table-bordered">
+            <tr>
+                <th>
+                    Name
+                </th>
+            </tr>
+            <tr ng-repeat="Pets in Pets">
+                <td class="row">
+                    <div class="col-md-2">
+                        <p> {{Pets.Name}} </p> 
+                    </div>
+                    <div class="col-md-offset-6 col-md-2">
+                        <a href="#/Pets/Delete{{PetsOwner.id}}" class="btn btn-default custom2">Delete</a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <p>{{pid}}</p>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+﻿<style>
+    .custom {
+    text-align:center;
+    align-content:center;
+}
+</style>
+
+
+<div ng-controller="CreatePetsOwnerController" class="row">    
+        <form ng-submit="createOwner()">
+            <fieldset>
+                <div class="row">
+                    <h2 class="custom">All Users</h2>
+                    <div class="col-md-offset-4 col-md-2"> 
+                        <section>
+                            <input type="text" ng-model="ownerName" class="form-control" value="Enter Pet Owner's Name"/>
+                        </section>
+                    </div>
+                    <div class="col-md-3">
+                        <section>
+                            <input type="submit" value="Add" class="btn btn-default" />
+                        </section>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+</div>
+<hr />
+
+<div ng-controller="PetsOwnerController"  class="row">
+
+    <solo-table items-on-page="10">
+
+        <div class="col-md-offset-4 col-md-4">
+            <table id="myTable" class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Count
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="PetsOwners in Owners">
+                        <td>
+                            <a href="#!/Pets/{{PetsOwners.Id}}">{{PetsOwners.Name}}</a>
+                        </td>
+                        <td class="row">
+                            <div class="col-md-2">
+                                <p> {{PetsOwners.Count}} </p>
+                            </div>
+                            <div class="col-md-offset-6 col-md-2">
+                                <a ng-click="deleteOwner(PetsOwners.Id)" class="btn btn-default custom2">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div>
+                <a href="" ng-click="gotoFirstPage()">First page | </a>
+                <a href="" ng-click="gotoPrevPage()"> ←prev | </a>
+                <a href="" ng-click="gotoNextPage()">next → | </a>
+                <a href="" ng-click="gotoLastPage()">Last page </a>
+            </div>
+        </div>
+    </solo-table>
+</div>
+
+
+
