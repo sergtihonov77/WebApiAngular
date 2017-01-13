@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PetstDBModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=&quot;C:\Users\MyX\Documents\Visual Studio 2015\Projects\WebApiAngular\WebApiAngular\App_Data\pets.db&quot;" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Pets">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="OwnerId" Type="integer" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PetsOwners">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Count" Type="integer" />
+  </EntityType>
+  <EntityContainer Name="PetstDBModelStoreContainer">
+    <EntitySet Name="Pets" EntityType="Self.Pets" store:Type="Tables" />
+    <EntitySet Name="PetsOwners" EntityType="Self.PetsOwners" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
